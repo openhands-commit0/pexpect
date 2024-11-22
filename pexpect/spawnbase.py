@@ -87,6 +87,12 @@ class SpawnBase(object):
         self.async_pw_transport = None
         self._buffer = self.buffer_type()
         self._before = self.buffer_type()
+    def _get_buffer(self):
+        return self._buffer
+
+    def _set_buffer(self, value):
+        self._buffer = value
+
     buffer = property(_get_buffer, _set_buffer)
 
     def read_nonblocking(self, size=1, timeout=None):
